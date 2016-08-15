@@ -31,3 +31,5 @@ http://localhost:4200/posts/post/tag/
 > posts.hbs > post.hbs > tag.hbs > tab.index.hbs
 ```
 
+## Reference
+1. [Rendering a Template](https://guides.emberjs.com/v2.7.0/routing/rendering-a-template/)
