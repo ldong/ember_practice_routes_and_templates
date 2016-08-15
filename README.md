@@ -1,53 +1,33 @@
-# Try
+# README
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Date: August 15th, 2016
 
-## Prerequisites
 
-You will need the following things properly installed on your computer.
+1. Run `ember s`
+2. Understand the hierarchy of templates. i.e.
 
-* [Git](http://git-scm.com/)
-* [Node.js](http://nodejs.org/) (with NPM)
-* [Bower](http://bower.io/)
-* [Ember CLI](http://ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
+```
+http://localhost:4200/posts
+> posts.hbs > posts.index.hbs
+```
 
-## Installation
+```
+http://localhost:4200/posts/post
+> posts.hbs > post.hbs > post.index.hbs
+```
 
-* `git clone <repository-url>` this repository
-* change into the new directory
-* `npm install`
-* `bower install`
 
-## Running / Development
+More examples:
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+1. When `this.route('tag');` without a callback, `index.hbs` wont be invoked.
+```
+http://localhost:4200/posts/post/tag
+> posts.hbs > post.hbs > tag.hbs
+```
 
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+2. When `this.route('tag', function(){});`, if there is an callback, then `index.hbs` will be invoked.
+```
+http://localhost:4200/posts/post/tag/
+> posts.hbs > post.hbs > tag.hbs > tab.index.hbs
+```
 
